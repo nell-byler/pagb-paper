@@ -1,0 +1,229 @@
+
+
+BIG PICTURE:
+
+   we successfully model optical lick indices (produced by low mass, long-lived metal-rich stars), UV colors (hot evolved stars) and emission line strengths.
+
+
+% --------------------------------------
+\citet{Trager+2008}: stellar population parameters of elliptical galaxies in the Coma Cluster. SSPs with ages 5-8 Gyr (contrary to predictions from cosmic downsizing).
+
+\citet{Graves+2007}: Compared ETGs with and without LIER-like emission lines. LIER ETGs have younger ages by 2-3 Gyr for the same velocity dispersion.
+
+\citet{Yan+2006}: 30\% of SDSS ETGs have emission lines characteristic of LINERs. Bimodal distribution of OII/Ha EW.
+
+\citet{Yi+2005,Kaviraj+2007,Schawinski+2007}: NUV photometry of SDSS ETGs; morphologically selected galaxies have similar optical colors but a wide range of NUV-optical colors.
+
+
+% --------- UV upturn -----------------------
+Bertola 1982, Brown 1997
+\citet{Hernandez+2014}: FUV-NUV, NUV-r colors for UV-upturn galaxies, need binary models.
+
+% --------- Blue HB stars -------------------
+Lee, Yoon & Lee 2000
+Schiavon et al. 2004
+Percival & Salaris 2011
+
+% --------- ETG comparisons -----------------
+\citet{Renzini+2006}: ETG review on stellar populations. Color (U-V) vs. Magnitude (M_V) relation for elliptical galaxies is very tight. Old ages (over 10 Gyr) and alpha-enhancement required to explain extreme Mg2 line index strength.
+\citet{Thomas+2005}: average SFHs for ETGs.
+\citet{Choi+2014} Full spectrum fitting of ETGs.
+
+\citet{Burstein+1988}: UV to optical color (UV upturn strength) and Mg2 line strength
+\citet{Bureau+2011}: NUV, FUV, optical, Mg, Hb SAURON galaxies
+
+\citet{Smith+2012}: optical and UV colors of ellipticals in Coma Cluster. FUV-NUV < 0.9 is classical UV upturn. Disagree with the \citet{Burstein+1988} and \citet{Bureau+2011} results that FUV-optical color correlates with metallicity. Instead it is an age dependence, and the metallicity is the weaker residual trend. UV upturn in 10\% of ETGs. FUV upturn is caused by helium-burning stars with very thin hydrogen envelopes, with high effective temperatures (EHB, thought also called hot sub-dwarfs since there can be a wide range in formation mechanisms). post-HB evolution can include long-lived UV luminous phases like failed AGB phase, agb-manquee). Yi+2007b. are single star models where enhanced efficiency of mass loss on the red giant branch leads to low envelope mass and high T on the HB. post-HB: more high-metallicity stars follow AGB manquee path instead of AGB branch. Metallicity primarily affects the age at which the rapid UV boost occurs. Han + 2007: EHB form through binary interactions, and FUV vs optical colours are weakly dependent on age for an SSP. Inderect correlations: hot stars responsible for the FUV excess are too faint at optical wavelengths to contribute substantially to the spectroscopic indices. but NUV -- same stars warm main sequence turn-off stars are expected to contribute to the NUV color variations and the spectroscopic ages. ** most of the observed scatter in the NUV vs optical color is a combination of variation in age and metallicity, and a significant contribution from the same hot old stars which dominate the FUV scatter,  and minor contributions from abundance ratio effects and variation in SFH. no need to invoke widespread residual SF to explain the NUV color scatter.
+
+\citet{Schombert} The NUV colors have unusual behavior near u with an
+inverse CMR and up-and-down signature in two-color
+diagrams. This indicates a decrease in the UV upturn to
+intermediate luminosity ellipticals, then a strengthening
+to higher masses. Models with BHB tracks can reproduce
+this behavior and match the globular cluster colors,
+indicating UV upturn is a metallicity effect.
+
+Simplistically, the F UV − NUV colour should be sensitive
+instead to the temperature of the upturn sources, which would provide
+further constraints on the origin of the upturn. For instance,
+Figure 14 of Yi et al. (1997b) shows that within their model, the
+post-EHB stars generate more FUV flux than the EHB itself, while
+in the NUV the contributions of EHB and post-EHB are comparable.
+In practice however, any attempt to extract information from
+the F UV − NUV colour alone will be confused by its sensitivity
+to at least three influences: (i) the age and metallicity of the pre-HB
+stellar population, via the main-sequence turn-off, (ii) the overall
+strength of the UV-upturn population, and (iii) the spectral slope of
+the upturn. In particular the strong observed F UV − NUV correlations
+likely arise from a compounding of effects (i) and (ii):
+increasing age and metallicity have the effect of suppressing the
+NUV flux from the main sequence, as well as b
+
+% ----- LINER IONIZATION SOURCES -----------
+Central AGN: \citet{Ferland+1983, Halpern+1983, Ho+1999, Kewley+2006, Ho+2009}
+Shocks: \citet{Koski+1976, Dopita+1995, Allen+2008}
+Accretion of warm gas in cooling flows: \citet{Heckman+1981}
+Post-AGB stars as ionization source: \citet{Binette+1994, Taniguchi+2000}
+
+% ----- LINER HISTORY ----------------------
+LINER Review: \citet{Filippenko+2003}
+Extended multiple kiloparsecs (long slit): \citet{Goudfrooij+1994, Maccehetto+1996}
+LINER coined: \citet{Heckman+1980}
+
+% ------ STELLAR STUFF -----------
+Lee+1994: metal-poor HB stars can be hot and make good UV sources when they are old
+Greggui & Renzini (1990): extremely low-mass HB stars may completely skip AGB; AGB manquee.
+Ferguson&Davidsen 1993: PAGB stars should account for 10-30\%
+
+%------------
+
+The nebular model used here is fully integrated within \FSPS and can be easily accessed via the python interface, \pFSPS\footnote{available at \url{http://dan.iel.fm/python-fsps/}}. Users who want to include nebular line and continuum emission in their computed SED can simply set {\tt add\_neb\_emission=True} when initializing the {\tt StellarPopulation} object, modifying the ionization parameter and gas phase metallicity with {\tt gas\_logu} and {\tt gas\_logz}. Complete usage instructions can be found at \url{http://nell-byler.github.io/cloudyfsps/}, including examples for generating mock galaxy spectra with nebular emission as a function of ionization parameter.
+
+Emission line diagnostics like the Baldwin-Philips-Terlevich diagram \citep[BPT; ][]{BPT} are a common way of studying ionized gas and distinguishing the type of ionizing radiation. In these diagrams, star forming galaxies fall in a defined sequence that is well-separated from AGN. In the BPT diagram, the region between the star-forming sequence and the AGN sequence is occupied by objects with emission characterized by strong low-ionization forbidden lines (e.g., \nii{}, \sii{}, \oii{}, \oi{}) relative to recombination lines.
+
+
+NOTES FROM JIEUN'S PAPER:
+The post-AGB timescales in the MIST models (adopting the definition from Miller Bertolami 2016) are consistent with those reported by Miller Bertolami (2016) and Weiss & Ferguson (2009), which are a factor of 3–10 shorter compared to the older post-AGB stellar evolution models (Vassiliadis & Wood 1994; Blöcker 1995). High mass stars are not included because they do not go through the same set of evolutionary phases featured here. The TPAGB and post-AGB phases are not shown for a subset of the models that do not completely evolve through those evolutionary stages. Unsurprisingly, the lifetimes generally decrease with increasing mass, though there are some notable exceptions including the peak in CHeB and AGB lifetimes at ∼ 2 M(see the discussion below).
+
+
+Johanssen 2016
+* SII/Ha > 0.2 means diffuse gas
+* electron density of something like 100-150 cm-3
+*
+
+In particular, Woods & Gilfanov (2013) demonstrated
+that accreting, nuclear-burning white dwarfs would, in the
+canonical “single-degenerate scenario” for the production of
+type Ia supernovae (SNe Ia), necessarily provide the dominant
+contribution to the ionizing background supplied by
+old stars. U
+
+In particular, accreting, steadily nuclearburning
+white dwarfs (WDs) are expected to number in the
+hundreds to thousands within a typical elliptical galaxy (e.g.
+Chen et al. 2014). With photospheric temperatures on the
+order of ≈1.5–10×105K and spectra well-approximated by
+blackbodies (in particular, without any sharp cutoff at the
+H I or He II ionization edges, see Rauch & Werner 2010;
+Woods & Gilfanov 2013), accreting WDs could in principle
+constitute an important part of the ionizing background in
+early-type galaxies.
+
+\citet{Johansson+2016} -- coadded SDSS spectra of galaxies with no star formation and AGN. Ha eq of 1.3 ang. Looked for HeII4686 line (progenitors of SN ia).
+WHAN-diagram from Cid Fernandes 2011 -- selects on NII and EW(Ha) -- log EW (-0.5-0.5).
+
+\citet{Gomes+2016, Belfiore+2016} -- Stellar population models predict Halpha equivalent widths of 0.5-3 ang.
+
+\citet{Pandya+2017} MASSIVE survey -- warm ionized gas with emission line ratios and equivalent widths consistent with gas excited by old stellar populations. Gas excitation is likely photoionization from evolved stars and fast shocks on extended kpc scales with possible additional contributions from low-luminosity AGN on nuclear scales. 
+
+\citet{Hirschmann+2017} - a version of self-consistent modelling.
+
+\citet{Singh+2013}The most probable explanation for the excess LINER-like emission is ionisation by evolved stars during the short but very hot and energetic phase known as post-AGB. This leads us to an entirely new interpretation. Post-AGB stars are ubiquitous and their ionising effect should be potentially observable in every galaxy with the gas present and with stars older than ~1 Gyr unless a stronger radiation field from young hot stars or an AGN outshines them. This means that galaxies with LINER-like emission are not a class defined by a property but rather by the absence of a property. It also explains why LINER emission is observed mostly in massive galaxies with old stars and little star formation.
+
+\citet{Gomes+2016} - CALIFA galaxies, EW estimates for LIER like emission. Estimate theoretical EWs from stellar population models Method takes the SSPs associated with the best-fit model, and integrates the SEDs blueward of the lyman continuum limit. SSPs with ages > 10^8 predict the Ly-c output of the pAGB component only; balmer line luminosities are then computed assuming case B recombination and standard conditions for the gas (n=100; T=10^4k).
+
+ Since it is now recognized that LINER-specific emission-line ratios
+are not confined to galaxy nuclei (e.g., Sharp & Bland-Hawthorn,
+2010; Kehrig et al., 2012; Papaderos et al., 2013; Singh et al., 2013), a
+more adequate acronym would be low-ionization emission-line regions
+(LIERs).
+
+Likewise, Eracleous et al. (2010) point
+out that pAGB stars provide more ionizing photons than AGN
+in more than half of the LINERs and can account for the observed
+line emission in 1/3 of these systems. 
+
+As
+Stasinska et al. ´ (2008) argue, a significant fraction of ETGs are
+in fact ‘retired’ galaxies, i.e. systems that stopped forming stars,
+and whose ionizing field is powered solely by pAGB sources.
+
+the presence or
+absence of LINER characteristics as an argument for or against
+pAGB photoionization, since it is known that they can be due to
+a variety of mechanisms, including shocks and starburst-driven
+outflows (see, e.g., Sharp & Bland-Hawthorn, 2010, for a recent
+observational review).
+
+
+For early-type galaxies where the bulk of the stellar population is old, post-AGB stars can contribute a significant portion of the total galaxy luminosity. Post-AGB stars are not capable of matching the ionizing flux produced by a single O-star; their strength lies in numbers. The progenitors of these stars have initial masses from 1-5\Msun{}, and are much more common than O-type stars.
+
+%In Fig.~\ref{fig:ionSpec} we show example ionizing spectra for instantaneous bursts at different metallicities. The top panel shows ionizing spectra for 100\Myr instantaneous bursts ($\log t = 8$) to highlight the contribution from the hot horizontal branch stars, which can be seen as an increase in flux in between the ionization energy for helium, I$_{\mathrm{He}}$, and the ionization energy for hydrogen, I$_{\mathrm{H}}$. These stars are hotter in lower metallicity populations, with their strongest contribution seen in the stellar population with \logZeq{-2}.
+
+%The onset of the first post-AGB stars varies with metallicity. The bottom panel of Fig.~\ref{fig:ionSpec} shows ionizing spectra for 2\Gyr instantaneous bursts; at 2\Gyr post-AGB stars are present at all metallicities. The spectra blueward of I$_{\mathrm{H}}$ appear clustered due to the fact that there are only two metallicities in the spectral library used for post-AGB stars.
+
+
+The region of the BPT diagram between the star-forming sequence and the AGN sequence is occupied by objects classified as ``low ionization emission regions''\citep[LIERs, ][]{Belfiore16}\footnote{Low ionization nuclear emission regions \citep[LINERs, ][]{Heckman1980} refers to centrally concentrated low ionization emission, which are likely attributed to weak AGN-related activity.}. LIER-like emission is characterized by strong low-ionization forbidden lines (e.g., \nii{}, \sii{}, \oii{}, \oi{}) relative to recombination lines, and was originally discovered in the nuclear regions of galaxies and attributed to AGN-related activity \citep{Kauffmann03b, Kewley06, Ho08}. While some cases are certainly still driven by the presence of a weak AGN, the discovery of spatially extended (${\sim}$kpc scales) LIER-like emission has led to work suggesting that hot, evolved stars could be responsible for the ionizing radiation in other cases \citep{Singh13, Belfiore16}. The leading candidate for the ionizing source is the population of post-AGB stars \citep{Binette94, Sarzi10, Yan12}. Extreme horizontal branch stars have also been suggested candidates, but considering their effect is beyond the scope of this paper.
+
+Post-AGB stars are stars that have left the AGB, evolving horizontally across the HR diagram towards very hot temperatures ($\sim10^5$ K) before cooling down to form white dwarfs, with a fraction of the post-AGB population forming planetary nebulae. The exposed cores of post-AGB stars are hot enough to ionize hydrogen and thus could produce a radiation field capable of ionizing the surrounding ISM, provided that there are enough post-AGB stars. 
+
+Post-AGB stars are not capable of matching the ionizing flux produced by a single O-star; their strength lies in numbers. The progenitors of these stars have initial masses from 1-5\Msun{}, and are much more common than O-type stars. For early-type galaxies where the bulk of the stellar population is old, AGB and post-AGB stars can contribute a significant portion of the total galaxy luminosity. \citet{Yan12} measured the ionization parameter and gas density for galaxies with LIER-like emission and compared it to the typical numbers of ionizing photons produced by post-AGB stars. They deduced that the ionization parameter for post-AGB stars falls short of the required value by a factor of 10, implying that the gas geometry must be quite close to the stars themselves.
+
+%-------------------------------------------------------
+% pAGB BPT Rinner, nH
+%-------------------------------------------------------
+\begin{figure}[!htbp]
+  \begin{centering}
+    \includegraphics[width=0.45\textwidth]{f27.pdf}
+    \caption{BPT diagram for an ionizing spectrum produced by a 3 Gyr solar metallicity SSP that includes post-AGB stars. The grayscale 2D histogram is star forming galaxies from SDSS. The solid black line shows the extreme starburst classification line from \citet{Kewley01} and the dashed line is the pure star formation classification line from \citet{Kauffmann03a}. Our old-star models with post-AGB stars do produce line ratios consistent with LIER-like emission, but large numbers of post-AGB stars (at least M$_{\mathrm{initial}} \sim 10^6\Msun{}$) would be required to produce enough ionizing photons.}
+    \label{fig:pAGBBPT}
+  \end{centering}
+\end{figure}
+%-------------------------------------------------------
+
+The geometry between the stars and gas is one of the major uncertainties associated with interpreting LIER-like emission. We first determine if populations including post-AGB stars are capable of producing line ratios consistent with LIER-like emission. The geometry previously assumed in this work ($\logR = 19$; $\nH = 100$) is appropriate for massive \hii regions found in star forming galaxies, where the gas is associated with the natal gas cloud, butmay not accurately describe the gas geometry in a scenario where old stars provide the ionizing radiation.
+
+To test the sensitivity to geometry, we generate ionizing spectra for older SSPs ($>1$ Gyr) that include post-AGB stars to use as input to \Cloudy, and run photoionization models at different values of \Rin{} and \nH{}. In \Fig{pAGBBPT} we show the BPT diagram line ratios for the post-AGB star ionizing spectra at several different ionization parameters, with \nH varied from 10-1000 and the inner radius varied from $10^{18}-10^{20}$ cm (0.3-30 pc). 
+
+The post-AGB models produce line ratios consistent with LIER-like emission, well outside of the ``pure star forming'' region of the BPT diagram, as identified by \citet{Kauffmann03a}. The ionization parameters required to produce observable line ratios are $\logU \sim -5$ to  $\logU \sim -3$. At $\Rin=10^{19}$ and $\nH=100$ cm$^{-3}$, this implies a total initial stellar mass of $10^6$-$10^8\Msun$. The required stellar mass would be higher for models where the inner radius is further from the ionizing source. We note that the ionizing spectrum was based on a stellar population at solar metallicity; low-metallicity post-AGB stars are hotter and would likely enhance the ionizing radiation.
+
+The line ratios in \Fig{pAGBBPT} show little sensitivity to the star-gas geometry, a result of our simplified model in which the gas exists in a plane-parallel shell surrounding a central point source of ionizing radiation. If the gas is produced by the AGB stars themselves or has a spatial distribution that differs from the distribution of stars, the geometry will differ substantially from the simplified shell used in this work. In future work we plan to test the effects of model geometry in more detail. 
+
+%-------------------------------------------------------
+% pAGB spectrum
+%-------------------------------------------------------
+\begin{figure}[!htbp]
+  \begin{centering}
+    %\plotone{f26a.pdf}
+    %\plotone{f26b.pdf}
+    \includegraphics[width=0.45\textwidth]{f28a.pdf}\\
+    \includegraphics[width=0.45\textwidth]{f28b.pdf}
+    \caption{\textbf{Top:} The effect of hot, evolved stars on the ionizing spectrum. The default default spectrum for a 3 Gyr SSP at solar metallicity is shown shown in black. The weight of the post-AGB phase is modulated from 1 (full inclusion of post-AGB stars) to $10^{-4}$, which decreases the amount of EUV flux relative to the rest of the population. \textbf{Bottom:} BPT diagram for photoionization models where \U{} and the weight of the post-AGB phase are varied. The solid black line shows the extreme starburst classification line from \citet{Kewley01} and the dashed line is the pure star formation classification line from \citet{Kauffmann03a}. The grayscale 2D histogram shows the number density of SDSS star-forming galaxies. The \citet{Vassiliadis} tracks used for post-AGB stars must be correct within a factor of two if post-AGB stars are responsible for LIER-like emission.}
+    \label{fig:hotstars}
+  \end{centering}
+\end{figure}
+%-------------------------------------------------------
+
+Another major uncertainty associated with the interpretation of LIER-like emission lies in our incomplete understanding of the late stages of stellar evolution. In addition to the poor constraints on the age distribution and lifetimes of post-AGB stars, it is uncertain what fraction of post-AGB stars contribute to the large-scale photoionizing radiation field. A recent census of the old, UV-bright stellar population in M31 was unable to reproduce predicted numbers of post-AGB stars \citep{Brown2008}. 
+
+To understand the sensitivity of LIER-like emission to the underlying stellar model, we generate ionizing spectra with varying contribution from post-AGB stars using the {\tt pagb} parameter in \FSPS. This parameter specifies the weight given to the post-AGB star phase, where {\tt pagb=0.0} turns off post-AGB stars and {\tt pagb=1.0} implies that the \citet{Vassiliadis} tracks are implemented as-is, the default behavior in \FSPS. In the top panel of \Fig{hotstars} we show the ionizing spectrum produced by a 3 Gyr SSP with {\tt pagb} set to 1, $10^{-1}$, $10^{-2}$, and $10^{-3}$. Scaling down the implemented post-AGB stars scales down the emergent EUV radiation in the spectrum.
+
+We show the resultant BPT diagram for the photoionization models that vary in both \U{} and {\tt pagb} in the bottom panel of \Fig{hotstars}. We find that the luminosity of the post-AGB stars could be reduced by a factor of two and still produce LIER-like emission, provided there are enough stars.
+
+\citet{Belfiore16} found that the \sii{}/\ha{} line ratio provided a clean separation between LIER-like emission and Seyfert-like emission. In \Fig{lier}, we show the \sii{} emission produced by our post-AGB models. The line ratios produced by our post-AGB star models show the elevated \sii{}/\ha{} ratios observed in LIER galaxies, and confirms the utility of \sii{} as a means of identifying low-ionization emission.
+
+%-------------------------------------------------------
+% pAGB spectrum
+%-------------------------------------------------------
+\begin{figure}[!htbp]
+  \begin{centering}
+    %\plotone{f27.pdf}
+    \includegraphics[width=0.45\textwidth]{f29.pdf}
+    \caption{\sii{}/\ha{} versus \oiiihb{} diagnostic diagram. Ionization parameter varies from $\U=-1$ (dark blue) to $\U=-4$ (light blue), and the weight of the post-AGB stars is varied (purple to yellow). The grayscale 2D histogram shows the density of star-forming galaxies and the black line shows the pure star formation classification line from \citet{Kauffmann03a}. The old star models that include post-AGB stars are able to reproduce the elevated \sii{}/\ha{} emission observed in LIERs.}
+    \label{fig:lier}
+  \end{centering}
+\end{figure}
+%-------------------------------------------------------
+
+%-------------------------------------------------------
+% EvType QH vs time for logZ=-2
+%-------------------------------------------------------
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.48\textwidth]{EvType_m200_QH.png}\\
+    \includegraphics[width=0.48\textwidth]{EvType_m200_QHe.png}
+    \caption{\emph{Top}: The ionizing photon flux per unit stellar mass, \QHat, as a function of time for different stellar types at 1\% solar metallicity. \emph{Bottom}:The ionizing photon flux per unit stellar mass for Helium, \QHe as a function of time for different evolutionary phases. In very metal poor populations, hot horizontal branch stars provide additional ionizing radiation. These stars provide significant amounts of hydrogen ionizing photons but are not hot enough to produce significant numbers of helium-ionizing photons.}
+    \label{fig:m2QF}
+  \end{center}
+\end{figure}
+%-------------------------------------------------------
+%For very metal-poor populations (\logZeq{-1.5} and below) hot horizontal branch stars can also contribute to the ionizing photon flux. Stars that begin their horizontal branch evolution with larger hydrogen envelopes have hydrogen-shell burning in addition to core-He burning, making these stars hotter and bluer. Metal-poor stars lose less mass on the RGB, retaining larger hydrogen envelopes, producing hotter HB stars. In Fig.~\ref{fig:m2QF} we show the same plots from Fig.~\ref{fig:QF}, but for a stellar population with \logZeq{-2}. The horizontal branch stars (Core He-Burning or \emph{CHeB}) contribute hydrogen-ionizing photons between 10-100\Myr. These hot horizontal branch stars contribute significant amounts of hydrogen-ionizing photons but are not hot enough to produce many helium-ionizing photons.
